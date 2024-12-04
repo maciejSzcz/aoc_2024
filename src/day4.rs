@@ -111,11 +111,33 @@ fn match_all(rows: &Vec<Vec<char>>, pattern: &Regex) -> i32 {
     match_horizontal(rows, pattern) + match_vertical(rows, pattern) + match_diagonal(rows, pattern)
 }
 
+fn match_x_mas(rows: &Vec<Vec<char>>, pattern: &Regex) -> i32 {
+    let mut res = 0;
+    for row in 1..(rows.len() - 1) {
+        for col in 1..(rows[0].len() - 1) {
+            let mut diag_a: String = "".to_string();
+            diag_a.push(rows[row - 1][col - 1]);
+            diag_a.push(rows[row][col]);
+            diag_a.push(rows[row + 1][col + 1]);
+            let mut diag_b: String = "".to_string();
+            diag_b.push(rows[row - 1][col + 1]);
+            diag_b.push(rows[row][col]);
+            diag_b.push(rows[row + 1][col - 1]);
+            if pattern.find(&diag_a).is_some() && pattern.find(&diag_b).is_some() {
+                res += 1;
+            }
+            println!("{}, {}", diag_a, diag_b);
+        }
+    }
+    res
+}
+
 pub fn day4() -> io::Result<()> {
     println!("Day 3:");
     let file = File::open("inputs/day4.txt")?;
     let reader = BufReader::new(file);
     let pattern = Regex::new(r"(XMAS|SAMX)").unwrap();
+    let pattern_x_mas = Regex::new(r"(MAS|SAM)").unwrap();
     let rows: Vec<Vec<char>> = reader
         .lines()
         .filter_map(Result::ok)
@@ -124,7 +146,9 @@ pub fn day4() -> io::Result<()> {
 
     let res1 = match_all(&rows, &pattern);
 
+    let res2 = match_x_mas(&rows, &pattern_x_mas);
+
     println!("Result for part 1: {:?}", res1);
-    println!("Result for part 2: {:?}", vec![1]);
+    println!("Result for part 2: {:?}", res2);
     Ok(())
 }
