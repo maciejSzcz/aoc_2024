@@ -133,7 +133,7 @@ fn match_x_mas(rows: &Vec<Vec<char>>, pattern: &Regex) -> i32 {
 }
 
 pub fn day4() -> io::Result<()> {
-    println!("Day 3:");
+    println!("Day 4:");
     let file = File::open("inputs/day4.txt")?;
     let reader = BufReader::new(file);
     let pattern = Regex::new(r"(XMAS|SAMX)").unwrap();
