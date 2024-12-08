@@ -6,6 +6,8 @@ use aoc::day3::day3;
 use aoc::day4::day4;
 use aoc::day5::day5;
 use aoc::day6::day6;
+use aoc::day7::day7;
+use aoc::day8::day8;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -21,6 +23,8 @@ fn main() {
         "day4" => day4(),
         "day5" => day5(),
         "day6" => day6(),
+        "day7" => day7(),
+        "day8" => day8(),
         _ => Ok(()),
     }
     .unwrap();
