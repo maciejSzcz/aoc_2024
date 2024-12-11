@@ -2,6 +2,7 @@ use std::env;
 
 use aoc::day1::day1;
 use aoc::day10::day10;
+use aoc::day11::day11;
 use aoc::day2::day2;
 use aoc::day3::day3;
 use aoc::day4::day4;
@@ -29,6 +30,7 @@ fn main() {
         "day8" => day8(),
         "day9" => day9(),
         "day10" => day10(),
+        "day11" => day11(),
         _ => Ok(()),
     }
     .unwrap();
