@@ -5,6 +5,7 @@ use aoc::day10::day10;
 use aoc::day11::day11;
 use aoc::day12::day12;
 use aoc::day13::day13;
+use aoc::day14::day14;
 use aoc::day2::day2;
 use aoc::day3::day3;
 use aoc::day4::day4;
@@ -35,6 +36,7 @@ fn main() {
         "day11" => day11(),
         "day12" => day12(),
         "day13" => day13(),
+        "day14" => day14(),
         _ => Ok(()),
     }
     .unwrap();
