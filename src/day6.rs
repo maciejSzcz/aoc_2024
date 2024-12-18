@@ -206,7 +206,7 @@ fn get_visited_count(board: &Vec<Vec<char>>) -> Result<usize, ()> {
 }
 
 pub fn day6() -> io::Result<()> {
-    println!("Day 5:");
+    println!("Day 6:");
     let file = File::open("inputs/day6.txt")?;
     let reader = BufReader::new(file);
 
